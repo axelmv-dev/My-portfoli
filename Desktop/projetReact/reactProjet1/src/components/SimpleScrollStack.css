@@ -1,0 +1,29 @@
+/* Simple Scroll Container */
+.simple-scroll-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Effet de parallaxe léger pour les sections */
+.section {
+  position: relative;
+  transition: transform 0.1s ease-out;
+}
+
+/* Effet de pile subtil */
+.section:nth-child(1) {
+  z-index: 4;
+}
+
+.section:nth-child(2) {
+  z-index: 3;
+}
+
+.section:nth-child(3) {
+  z-index: 2;
+}
+
+.section:nth-child(4) {
+  z-index: 1;
+}

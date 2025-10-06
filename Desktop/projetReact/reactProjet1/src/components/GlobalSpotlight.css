@@ -1,0 +1,129 @@
+/* Global Spotlight Effect */
+.global-spotlight-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-color: rgba(255, 255, 255, 0.08);
+}
+
+.spotlight-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background: radial-gradient(
+    circle 400px at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 40%
+  );
+  will-change: opacity;
+}
+
+.spotlight-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Effets simplifiés pour les performances */
+.global-spotlight-container .nav-item:hover,
+.global-spotlight-container .btn:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+/* Performance optimizations */
+.spotlight-overlay {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .spotlight-overlay {
+    background: radial-gradient(
+      circle 400px at var(--mouse-x) var(--mouse-y),
+      var(--spotlight-color) 0%,
+      transparent 50%
+    );
+  }
+  
+  .global-spotlight-container .section::before {
+    background: radial-gradient(
+      circle 300px at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.03) 0%,
+      transparent 70%
+    );
+  }
+}
+
+@media (max-width: 480px) {
+  .spotlight-overlay {
+    background: radial-gradient(
+      circle 250px at var(--mouse-x) var(--mouse-y),
+      var(--spotlight-color) 0%,
+      transparent 50%
+    );
+  }
+}
+
+@media (max-width: 360px) {
+  .spotlight-overlay {
+    background: radial-gradient(
+      circle 200px at var(--mouse-x) var(--mouse-y),
+      var(--spotlight-color) 0%,
+      transparent 50%
+    );
+  }
+}
+
+/* Désactiver l'effet spotlight sur les très petits écrans pour les performances */
+@media (max-width: 320px) {
+  .spotlight-overlay {
+    display: none;
+  }
+}
+
+/* Effet de profondeur pour les cartes */
+.global-spotlight-container .profile-card,
+.global-spotlight-container .about-card,
+.global-spotlight-container .skill-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.global-spotlight-container .profile-card::before,
+.global-spotlight-container .about-card::before,
+.global-spotlight-container .skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle 300px at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.global-spotlight-container .profile-card:hover::before,
+.global-spotlight-container .about-card:hover::before,
+.global-spotlight-container .skill-card:hover::before {
+  opacity: 1;
+}

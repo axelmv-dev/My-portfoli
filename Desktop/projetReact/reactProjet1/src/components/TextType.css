@@ -1,0 +1,110 @@
+/* Text Type Animation Styles */
+.text-type {
+  display: inline-block;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+.text-type__content {
+  display: inline-block;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffffff, #cccccc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.text-type__cursor {
+  margin-left: 0.25rem;
+  display: inline-block;
+  opacity: 1;
+  font-weight: 300;
+  color: #ffffff;
+  animation: blink 1s infinite;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Hero specific styles */
+.hero .text-type {
+  font-size: 4rem;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.hero .text-type__content {
+  font-size: inherit;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffffff, #cccccc, #aaaaaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero .text-type__cursor {
+  font-size: inherit;
+  color: #ffffff;
+  font-weight: 300;
+}
+
+/* Enhanced glow effect */
+.text-type__content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(10px);
+}
+
+.text-type:hover .text-type__content::after {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero .text-type {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .text-type {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero .text-type {
+    font-size: 2.5rem;
+  }
+  
+  .text-type__cursor {
+    margin-left: 0.15rem;
+  }
+}
+
+/* Cursor simplifié pour les performances */
+.text-type__cursor {
+  position: relative;
+}
