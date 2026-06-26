@@ -1,6 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import TextType from './TextType';
+import profilePhoto from '../assets/Maphoto.jpg';
 
 const Hero = () => {
   const scrollToNext = () => {
@@ -12,13 +13,31 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero">
+      <div className="hero-bg-glow"></div>
+      <div className="hero-bg-glow-2"></div>
       <div className="container">
         <div className="hero-content">
-          <div className="hero-text">
-            <h1 className="hero-title">
+          {/* Photo circulaire à gauche */}
+          <div className="hero-photo-side">
+            <div className="hero-photo-container">
+              <div className="hero-photo-ring"></div>
+              <div className="hero-photo-ring-inner"></div>
+              <img 
+                src={profilePhoto} 
+                alt="Yeo Gozie Ousmane Axel" 
+                className="hero-photo"
+              />
+            </div>
+          </div>
+
+          {/* Texte à droite */}
+          <div className="hero-text-side">
+            <p className="hero-greeting">Hey, je suis</p>
+
+            <h1 className="hero-name">
               <TextType
                 text={[
-                  "Salut, je suis Yeo Gozie Ousmane Axel",
+                  "Yeo Gozie Ousmane Axel",
                   "Futur Ingénieur Big Data",
                   "Étudiant MIAGE"
                 ]}
@@ -29,21 +48,26 @@ const Hero = () => {
                 showCursor={true}
                 cursorCharacter="|"
                 className="hero-name-typing"
-                textColors={['#ffffff', '#cccccc', '#aaaaaa']}
+                textColors={['#fafafa', '#818cf8', '#a78bfa']}
                 loop={true}
               />
             </h1>
-            
-            <div className="hero-subtitle">
-              <span className="subtitle-text">Étudiant en Licence 2 MIAGE</span>
-              <div className="subtitle-line"></div>
-            </div>
-            
+
             <p className="hero-description">
               Passionné par la technologie et l'analyse de données, 
               je me spécialise en gestion et informatique pour devenir 
-              ingénieur en Big Data et créer des solutions d'analyse avancées.
+              ingénieur en Big Data.
             </p>
+
+            <div className="hero-tags">
+              <span className="hero-tag">MIAGE</span>
+              <span className="hero-tag-separator">|</span>
+              <span className="hero-tag">Big Data</span>
+              <span className="hero-tag-separator">|</span>
+              <span className="hero-tag">Dev Web</span>
+              <span className="hero-tag-separator">|</span>
+              <span className="hero-tag">Cybersécurité</span>
+            </div>
             
             <div className="hero-buttons">
               <button 
@@ -51,7 +75,9 @@ const Hero = () => {
                 onClick={scrollToNext}
               >
                 <span>Découvrir mon parcours</span>
-                <div className="btn-arrow">→</div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
               </button>
               
               <button 
@@ -67,30 +93,7 @@ const Hero = () => {
               </button>
             </div>
           </div>
-          
-          <div className="hero-visual">
-            <div className="profile-card">
-              <div className="profile-avatar">
-                <div className="avatar-initials">YA</div>
-              </div>
-              <div className="profile-info">
-                <h3>Yeo Gozie</h3>
-                <p>Futur Ingénieur Big Data & Étudiant MIAGE</p>
-                <div className="profile-stats">
-                  <div className="stat">
-                    <span className="stat-number">2</span>
-                    <span className="stat-label">Années d'expérience</span>
-                  </div>
-                  <div className="stat">
-                    <span className="stat-number">6+</span>
-                    <span className="stat-label">Technologies</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-        
       </div>
     </section>
   );

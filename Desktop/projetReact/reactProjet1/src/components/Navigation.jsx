@@ -18,6 +18,7 @@ const Navigation = ({ activeSection, onSectionClick }) => {
     { id: 'hero', label: 'Accueil' },
     { id: 'about', label: 'À propos' },
     { id: 'skills', label: 'Compétences' },
+    { id: 'certifications', label: 'Certifications' },
     { id: 'contact', label: 'Contact' }
   ];
 

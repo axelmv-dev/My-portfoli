@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
+import Certifications from './components/Certifications';
 import Navigation from './components/Navigation';
 import SimpleScrollStack from './components/SimpleScrollStack';
 import GlobalSpotlight from './components/GlobalSpotlight';
@@ -23,7 +24,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'skills', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'certifications', 'contact'];
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight - windowHeight;
@@ -83,6 +84,10 @@ function App() {
           
           <section className="section" id="skills">
             <Skills />
+          </section>
+          
+          <section className="section" id="certifications">
+            <Certifications />
           </section>
           
           <section className="section" id="contact">

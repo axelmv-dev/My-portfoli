@@ -30,19 +30,34 @@ const About = () => {
 
   const aboutCards = [
     {
-      icon: '🎓',
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#grad1)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#6366f1"/><stop offset="100%" stopColor="#8b5cf6"/></linearGradient></defs>
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        </svg>
+      ),
       title: 'Formation',
       description: 'Étudiant en Licence 2 MIAGE (Méthodes Informatiques Appliquées à la Gestion d\'Entreprise)',
       details: 'Formation pluridisciplinaire combinant informatique, gestion et management'
     },
     {
-      icon: '📊',
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#grad2)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <defs><linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#6366f1"/><stop offset="100%" stopColor="#8b5cf6"/></linearGradient></defs>
+          <path d="M18 20V10M12 20V4M6 20v-6"/>
+        </svg>
+      ),
       title: 'Big Data',
       description: 'Passionné par l\'analyse et le traitement de grandes volumes de données',
       details: 'Apprentissage des technologies d\'analyse de données et d\'intelligence artificielle'
     },
     {
-      icon: '💼',
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#grad3)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <defs><linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#6366f1"/><stop offset="100%" stopColor="#8b5cf6"/></linearGradient></defs>
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+        </svg>
+      ),
       title: 'Gestion & Informatique',
       description: 'Spécialisation en gestion et informatique appliquée',
       details: 'Formation en MIAGE combinant gestion d\'entreprise et technologies informatiques'
@@ -105,19 +120,27 @@ const About = () => {
               <h3>Mes valeurs</h3>
               <ul>
                 <li>
-                  <span className="value-icon">📊</span>
+                  <span className="value-icon-wrapper">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                  </span>
                   <span>Analyse précise et interprétation des données</span>
                 </li>
                 <li>
-                  <span className="value-icon">🔄</span>
+                  <span className="value-icon-wrapper">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/></svg>
+                  </span>
                   <span>Apprentissage continu et veille technologique</span>
                 </li>
                 <li>
-                  <span className="value-icon">🤝</span>
+                  <span className="value-icon-wrapper">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </span>
                   <span>Collaboration et travail d'équipe</span>
                 </li>
                 <li>
-                  <span className="value-icon">💼</span>
+                  <span className="value-icon-wrapper">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                  </span>
                   <span>Gestion efficace et optimisation des processus</span>
                 </li>
               </ul>
@@ -132,7 +155,7 @@ const About = () => {
                   className={`about-card ${activeCard === index ? 'active' : ''}`}
                   onClick={() => setActiveCard(index)}
                 >
-                  <div className="card-icon">{card.icon}</div>
+                  <div className="card-icon-wrapper">{card.icon}</div>
                   <h4 className="card-title">{card.title}</h4>
                   <p className="card-description">{card.description}</p>
                   <div className="card-details">{card.details}</div>

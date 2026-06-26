@@ -46,25 +46,41 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: '📱',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+        </svg>
+      ),
       title: 'Téléphone',
       value: '+225 07 15 40 02 09',
       action: 'copy'
     },
     {
-      icon: '📧',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+        </svg>
+      ),
       title: 'Email',
       value: 'ousmaneaxel108@gmail.com',
       action: 'copy'
     },
     {
-      icon: '📍',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+      ),
       title: 'Localisation',
-      value: 'Côte d\'Ivoire Abidjan',
+      value: 'Côte d\'Ivoire, Abidjan',
       action: 'none'
     },
     {
-      icon: '🎓',
+      icon: (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        </svg>
+      ),
       title: 'Formation',
       value: 'Licence 2 MIAGE',
       action: 'none'
@@ -106,8 +122,11 @@ const Contact = () => {
                     <button
                       className="copy-btn"
                       onClick={() => copyToClipboard(info.value)}
+                      aria-label="Copier"
                     >
-                      📋
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                      </svg>
                     </button>
                   )}
                 </div>
@@ -187,9 +206,15 @@ const Contact = () => {
               {submitStatus && (
                 <div className={`status-message ${submitStatus}`}>
                   {submitStatus === 'success' ? (
-                    <span>✅ Message envoyé avec succès !</span>
+                    <span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign: 'middle', marginRight: '8px'}}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      Message envoyé avec succès !
+                    </span>
                   ) : (
-                    <span>❌ Erreur lors de l'envoi. Veuillez réessayer.</span>
+                    <span>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{verticalAlign: 'middle', marginRight: '8px'}}><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                      Erreur lors de l'envoi. Veuillez réessayer.
+                    </span>
                   )}
                 </div>
               )}
@@ -207,14 +232,16 @@ const Contact = () => {
                 ) : (
                   <>
                     <span>Envoyer le message</span>
-                    <span className="btn-arrow">→</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
                   </>
                 )}
               </button>
 
               {submitStatus === 'success' && (
                 <div className="success-message">
-                  <span className="success-icon">✅</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                   Message envoyé avec succès ! Je vous répondrai bientôt.
                 </div>
               )}
@@ -226,7 +253,7 @@ const Contact = () => {
           <div className="footer-content">
             <div className="footer-text">
               <h4>Yeo Gozie Ousmane Axel</h4>
-              <p>Étudiant MIAGE • Futur Ingénieur Big Data • Spécialisé en Gestion & Informatique</p>
+              <p>Étudiant MIAGE · Futur Ingénieur Big Data · Spécialisé en Gestion & Informatique</p>
             </div>
             
             <div className="footer-links">
@@ -249,10 +276,13 @@ const Contact = () => {
                 TikTok
               </a>
               <button 
-                className="footer-link"
+                className="footer-link scroll-top-btn"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               >
-                🔝 Retour en haut
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="18 15 12 9 6 15"/>
+                </svg>
+                Retour en haut
               </button>
             </div>
           </div>
