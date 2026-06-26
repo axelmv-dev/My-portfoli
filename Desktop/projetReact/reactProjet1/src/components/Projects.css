@@ -1,0 +1,271 @@
+/* ============================================
+   PROJECTS SECTION — Stacking Cards
+   ============================================ */
+
+.projects-section {
+  position: relative;
+  background: var(--bg-primary);
+  padding: 0 !important;
+  min-height: auto !important;
+}
+
+/* Header */
+.projects-header-wrapper {
+  padding: 100px 24px 40px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+/* Stack wrapper */
+.projects-stack {
+  position: relative;
+}
+
+/* ============================================
+   CARD SLOT — scroll runway
+   ============================================ */
+.project-slot {
+  height: 100vh;
+}
+
+.project-slot:last-child {
+  height: auto;
+}
+
+/* ============================================
+   STICKY WRAPPER — full viewport dark bg
+   ============================================ */
+.project-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  transform-origin: center top;
+  will-change: transform, opacity;
+  padding: 24px;
+}
+
+/* ============================================
+   PROJECT CARD — white content card
+   ============================================ */
+.project-card {
+  display: flex;
+  align-items: center;
+  width: min(1140px, 100%);
+  min-height: 520px;
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 10px 50px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* ============================================
+   LEFT SIDE — Text content
+   ============================================ */
+.project-card-text {
+  flex: 1;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #1a1a2e;
+}
+
+.project-category {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.project-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #111;
+  line-height: 1.15;
+}
+
+.project-description {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: #555;
+}
+
+/* Highlights list */
+.project-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.project-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #333;
+  font-weight: 500;
+}
+
+.project-highlights .check-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--accent);
+}
+
+/* Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.project-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 7px 18px;
+  border-radius: 999px;
+  border: 1.5px solid #222;
+  color: #222;
+  letter-spacing: 0.02em;
+  transition: all var(--transition-fast);
+}
+
+.project-tag:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ============================================
+   RIGHT SIDE — Device frame with screenshot
+   ============================================ */
+.project-card-visual {
+  width: 50%;
+  flex-shrink: 0;
+  padding: 32px 32px 32px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device-frame {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1a1a2e;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Browser-style top bar with 3 dots */
+.device-topbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: #12121e;
+}
+
+.device-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #333;
+}
+
+.device-dot:nth-child(1) {
+  background: #ff5f57;
+}
+
+.device-dot:nth-child(2) {
+  background: #febc2e;
+}
+
+.device-dot:nth-child(3) {
+  background: #28c840;
+}
+
+/* Screenshot area */
+.device-screen {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+}
+
+.device-screen img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top left;
+  transition: transform 8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* On hover: slowly scroll through the full page screenshot */
+.device-frame:hover .device-screen img {
+  object-position: bottom left;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .project-card {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .project-card-text {
+    padding: 28px 24px;
+  }
+
+  .project-card-visual {
+    width: 100%;
+    padding: 0 20px 20px;
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-sticky-wrapper {
+    padding: 16px;
+  }
+
+  .project-card-text {
+    padding: 22px 18px;
+    gap: 12px;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+  }
+
+  .project-description {
+    font-size: 0.84rem;
+  }
+
+  .project-highlights li {
+    font-size: 0.8rem;
+  }
+
+  .device-screen {
+    max-height: 260px;
+  }
+}
